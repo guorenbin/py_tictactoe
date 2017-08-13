@@ -220,18 +220,17 @@ class TicTacToe:
 root = Tk()
 root.title("Ian's Tic-Tac-Toe Game")
 
-game = TicTacToe()
-
+game = TicTacToe()      ## 创建一个TicTacToe类的实例
 
 # -------------------------------------
 #              GUI Setup
 # -------------------------------------
 
 # Welcome Label
-welcome_text = StringVar()
-welcome_text.set("Welcome to Ian's Tic-Tac-Toe Game!")
-welcome = Label(root, textvariable=welcome_text)
-welcome.grid(row=0, column=0, columnspan=3)
+welcome_text = StringVar()          ## 创建一个StringVar()的对象?
+welcome_text.set("Welcome to Ian's Tic-Tac-Toe Game!")          ## 调用其set方法
+welcome = Label(root, textvariable=welcome_text)  
+welcome.grid(row=0, column=0, columnspan=3)    ## grid 类似于pack()方法
 
 # Label used to display the current scores
 count_text = StringVar()
@@ -247,10 +246,11 @@ info.grid(row=2, column=0, columnspan=3)
 
 # Create buttons
 for square in xrange(9):
+                   ## 创建Button类的对象s                       lambda到最后是一个整体
     temp_button = Button(root, textvariable=game.moves[square], command=lambda s=square: game.make_move(s))
     # Divide by 3 to get row number, modulus by 3 to get column number
     temp_button.grid(row=(square / 3) + 3, column=(square % 3), sticky=NSEW)
-    game.buttons.append(temp_button)
+    game.buttons.append(temp_button)        ## 调用game的buttons.append方法
 
 # Button for resetting the game
 restart_button_text = StringVar()
