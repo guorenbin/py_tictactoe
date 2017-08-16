@@ -220,17 +220,17 @@ class TicTacToe:
 root = Tk()
 root.title("Ian's Tic-Tac-Toe Game")
 
-game = TicTacToe()      ## 创建一个TicTacToe类的实例
+game = TicTacToe()    
 
 # -------------------------------------
 #              GUI Setup
 # -------------------------------------
 
 # Welcome Label
-welcome_text = StringVar()          ## 创建一个StringVar()的对象?
-welcome_text.set("Welcome to Ian's Tic-Tac-Toe Game!")          ## 调用其set方法
+welcome_text = StringVar()          
+welcome_text.set("Welcome to Ian's Tic-Tac-Toe Game!")          
 welcome = Label(root, textvariable=welcome_text)  
-welcome.grid(row=0, column=0, columnspan=3)    ## grid 类似于pack()方法
+welcome.grid(row=0, column=0, columnspan=3)    
 
 # Label used to display the current scores
 count_text = StringVar()
