@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from Tkinter import *
+from tkinter import *
 import copy
 from operator import itemgetter
 
@@ -21,7 +21,7 @@ class TicTacToe:
     def __init__(self):
         self.board = [" "] * 9
         # List comprehension is needed so that each StringVar will not point to the same object
-        self.moves = [StringVar() for _ in xrange(9)]
+        self.moves = [StringVar() for _ in list(range(9))]
         self.x_wins = 0
         self.o_wins = 0
         self.curr_player = "X"
@@ -114,7 +114,7 @@ class TicTacToe:
 
     # Update the GUI to reflect the moves in the board attribute
     def update_board(self):
-        for i in xrange(9):
+        for i in list(range(9)):
             self.moves[i].set(self.board[i])
 
     # Check each of the winning combinations to check if anyone has won
@@ -163,7 +163,7 @@ class TicTacToe:
 
         best_move = None
 
-        for i in xrange(9):
+        for i in list(range(9)):
             if board_copy[i] == " ":
                 board_copy[i] = player
                 val = self.minimax(self.get_enemy(player), board_copy, a, b)
@@ -195,7 +195,7 @@ class TicTacToe:
 
         best_outcome = -100 if player == "O" else 100
 
-        for i in xrange(9):
+        for i in list(range(9)):
             if board_copy[i] == " ":
                 board_copy[i] = player
                 val = self.minimax(self.get_enemy(player), board_copy, alpha, beta)
@@ -245,11 +245,11 @@ info = Label(root, textvariable=info_text)
 info.grid(row=2, column=0, columnspan=3)
 
 # Create buttons
-for square in xrange(9):
+for square in list(range(9)):
                    ## 创建Button类的对象s                       lambda到最后是一个整体
     temp_button = Button(root, textvariable=game.moves[square], command=lambda s=square: game.make_move(s))
     # Divide by 3 to get row number, modulus by 3 to get column number
-    temp_button.grid(row=(square / 3) + 3, column=(square % 3), sticky=NSEW)
+    temp_button.grid(row=int((square / 3)) + 3, column=int (square % 3), sticky=NSEW)
     game.buttons.append(temp_button)        ## 调用game的buttons.append方法
 
 # Button for resetting the game
